@@ -6,7 +6,7 @@ Este proyecto es una aplicación de ejemplo que muestra un sistema de inicio de 
 
 ```bash
 # Clonar el repositorio
-git clone <URL_DEL_REPOSITORIO>
+gh repo clone DxrkMxn/angular-login-crud-project
 cd angular-login-crud-project
 
 # Instalar dependencias
