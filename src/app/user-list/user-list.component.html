@@ -1,0 +1,58 @@
+<div class="topbar">
+    <div class="topbar-left">
+        <h1>CRUD en Angular 14 por Jhusef López</h1>
+    </div>
+    <div class="topbar-right">
+        <button class="logout-button" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon> Salir
+        </button>
+    </div>
+</div>
+
+<div class="table-container">
+    <table *ngIf="dataSource && dataSource.data.length !== 0" class="user-table" mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Correo</th>
+            <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+            <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Dirección</th>
+            <td mat-cell *matCellDef="let user">{{ user.address }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let user">
+                <div class="button-group">
+                    <button [routerLink]="['/user-form', user.id]" class="edit-button">
+                        <mat-icon>edit</mat-icon> Editar
+                    </button>
+                    <button (click)="deleteUser(user.id)" class="delete-button">
+                        <mat-icon>delete</mat-icon> Eliminar
+                    </button>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+</div>
+
+<div class="button-container">
+    <button routerLink="/user-form" class="add-button">
+        <mat-icon>add</mat-icon> Agregar Usuario
+    </button>
+</div>
+
+<!-- <div class="pagination-container">
+    <mat-paginator [length]="dataSource?.data?.length || 0" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChange($event)"></mat-paginator>
+</div> -->

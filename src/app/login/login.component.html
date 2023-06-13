@@ -1,0 +1,21 @@
+<div class="video-background">
+    <video autoplay="true" loop="true" muted="true">
+        <source src="../../assets/videos/back.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="container">
+    <h1>Iniciar sesión</h1>
+    <form (submit)="login()">
+        <label>
+            Usuario:
+            <input [(ngModel)]="username" name="username">
+        </label>
+        <label>
+            Contraseña:
+            <input [(ngModel)]="password" name="password" type="password">
+        </label>
+        <button type="submit">Iniciar sesión</button>
+    </form>
+</div>
+<img src="../../assets/images/Sign.png" alt="Jhusef López" class="signature" />
+<ngx-loading [show]="loading"></ngx-loading>
